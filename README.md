@@ -1,5 +1,5 @@
 # Tugas Besar STD 2020
-Hubungan antara Dokter dan Pasien nya
+Connection between the doctor and the patient
 
 ### Developer
 >- Mohammad Mirza Qusyairi  **( 1301194203 )**
