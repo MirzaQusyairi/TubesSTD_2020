@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="list_relasi.cpp" />
+		<Unit filename="list_relasi.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
