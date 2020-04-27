@@ -1,39 +1,56 @@
 #ifndef LIST_CHILD_H_INCLUDED
 #define LIST_CHILD_H_INCLUDED
-#define first_child(L) L.first_child
-#define last_child(L) L.last_child
-#define next_child(P) P->next_child
-#define prev_child(P) P->prev_child
-#define info_child(P) P->info_child
+
 #include <iostream>
+#include <stdlib.h>
+
+#define next(P) P->next
+#define prev(P) P->prev
+#define first(L) L.first
+#define last(L) L.last
+#define info(P) P->info
 
 using namespace std;
-typedef string infotype_child;
-typedef struct elmlist_child *address_child;
+
+struct Date{
+    int tanggal,bulan,tahun;
+};
+struct datapasien{
+    int IDPasien;
+    string Nama;
+    string Alamat;
+    string JenisKel;
+    Date TglLahir;
+};
+
+typedef datapasien infotype_child;
+typedef struct elmlist_child *adr_child;
 
 struct elmlist_child{
     infotype_child info;
-    address_child next, prev;
+    adr_child next;
+    adr_child prev;
 };
 
 struct List_child{
-    address_child first, last;
+    adr_child first;
+    adr_child last;
 };
 
-void createList(List_child &L);
-address_child allocate(infotype_child x);
-void deallocate(address_child &P);
-
-void insertFirst(List_child &L, address_child P);
-void insertAfter(List_child &L, address_child P, address_child &Prec);
-void insertLast(List_child &L, address_child P);
-
-void deleteFirst(List_child &L, address_child &P);
-void deleteAfter(List_child &L, address_child &P, address_child Prec);
-void deleteLast(List_child &L, address_child &P);
-
-address_child findElm(List_child L, infotype_child x);
-void printInfo(List_child L);
-
+void createListChild(List_child &L);
+adr_child alokasiChild(infotype_child x);
+void insertFirstChild(List_child &L, adr_child P);
+void insertLastChild(List_child &L, adr_child P);
+void insertAfterChild(List_child &L, adr_child &Prec, adr_child P);
+void deleteFirstChild(List_child &L, adr_child &P);
+void deleteLastChild(List_child &L, adr_child &P);
+void deleteAfterChild(List_child &L,adr_child Prec, adr_child &P);
+void insertSortChild(List_child &L, adr_child Q);
+void deleteListChild(List_child &L, int x);
+void dealokasiChild(adr_child &P);
+adr_child findElmChild(List_child L, int x);
+void printChild(List_child L);
+int randomIDPasien();
+void InputDataPasien(List_child &L,infotype_child &data);
 
 #endif // LIST_CHILD_H_INCLUDED
