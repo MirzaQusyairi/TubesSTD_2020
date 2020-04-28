@@ -1,5 +1,4 @@
 #include "list_child.h"
-#include "list_relasi.h"
 
 void createListChild(List_child &L){
     first(L) = NULL;
@@ -106,19 +105,20 @@ void insertSortChild(List_child &L, adr_child Q){
     }
 }
 
-void deleteListChild(List_child &L, int x){
-    adr_child P, Q;
+void deleteListChild(List_child &L, int ID){
+    adr_child P,Q;
     P = first(L);
-    if(info(first(L)).IDPasien == x){
+
+    if(info(first(L)).IDPasien == ID){
         deleteFirstChild(L,Q);
         dealokasiChild(Q);
-    } else if(info(prev(P)).IDPasien == x){
+    } else if(info(prev(P)).IDPasien == ID){
         deleteLastChild(L, Q);
         dealokasiChild(Q);
     } else {
         do {
             P = next(P);
-        } while (P != first(L) && info(prev(P)).IDPasien != x);
+        } while (P != first(L) && info(prev(P)).IDPasien != ID);
         deleteAfterChild(L, prev(prev(P)), Q);
         dealokasiChild(Q);
     }
@@ -185,5 +185,4 @@ void InputDataPasien(List_child &L, infotype_child &data) {
 
     cout << "\nData pasien berhasil dibuat!" <<endl;
     cout << "ID Pasien anda : "<<data.IDPasien<<endl;
-    bersih();
 }

@@ -46,7 +46,7 @@ void deleteFirstChild(List_child &L, adr_child &P);
 void deleteLastChild(List_child &L, adr_child &P);
 void deleteAfterChild(List_child &L,adr_child Prec, adr_child &P);
 void insertSortChild(List_child &L, adr_child Q);
-void deleteListChild(List_child &L, int x);
+void deleteListChild(List_child &L, int ID);
 void dealokasiChild(adr_child &P);
 adr_child findElmChild(List_child L, int x);
 void printChild(List_child L);

@@ -4,35 +4,33 @@
 
 1587279554 source:c:\users\kamil\documents\github\tubesstd_2020\list_relasi.cpp
 
-1587974751 source:c:\users\computer\documents\github\tubesstd_2020\main.cpp
+1588060664 source:c:\users\computer\documents\github\tubesstd_2020\main.cpp
 	<iostream>
 	<stdlib.h>
 	"list_parent.h"
 	"list_child.h"
 	"list_relasi.h"
 
-1587974597 source:c:\users\computer\documents\github\tubesstd_2020\list_relasi.cpp
+1588061420 source:c:\users\computer\documents\github\tubesstd_2020\list_relasi.cpp
 	"list_relasi.h"
 
-1587974011 source:c:\users\computer\documents\github\tubesstd_2020\list_child.cpp
+1588000838 source:c:\users\computer\documents\github\tubesstd_2020\list_child.cpp
 	"list_child.h"
-	"list_relasi.h"
 
-1587971578 c:\users\computer\documents\github\tubesstd_2020\list_child.h
+1588062108 c:\users\computer\documents\github\tubesstd_2020\list_child.h
 	<iostream>
 	<stdlib.h>
 
-1587974570 c:\users\computer\documents\github\tubesstd_2020\list_relasi.h
+1588060581 c:\users\computer\documents\github\tubesstd_2020\list_relasi.h
 	<iostream>
 	<stdlib.h>
 	"list_parent.h"
 	"list_child.h"
 
-1587965031 c:\users\computer\documents\github\tubesstd_2020\list_parent.h
+1588061769 c:\users\computer\documents\github\tubesstd_2020\list_parent.h
 	<iostream>
 	<stdlib.h>
 
-1587971409 source:c:\users\computer\documents\github\tubesstd_2020\list_parent.cpp
+1588000846 source:c:\users\computer\documents\github\tubesstd_2020\list_parent.cpp
 	"list_parent.h"
-	"list_relasi.h"
 

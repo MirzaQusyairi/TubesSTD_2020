@@ -11,18 +11,26 @@ void MainMenu(){
     infotype_parent parent;
     infotype_child child;
 
+    adr_child ADRchild;
+    adr_parent ADRparent;
+    adr_relasi ADRrelasi;
     List_parent A;
     List_child B;
-
+    List_relasi C;
     createListParent(A);
     createListChild(B);
+    createListRelasi(C);
 
-    int choose,view;
+    int choose;
     do{
-        cout<<"=========== KLINIK MITRA SEHAT ==========="<< endl;
+        cout<<"KLINIK MITRA SEHAT"<< endl;
         cout<<"1. Input Data Dokter"<< endl;
         cout<<"2. Input Data Pasien"<< endl;
-        cout<<"3. Tampilkan Data"<< endl;
+        cout<<"3. Input Data Berobat"<< endl;
+        cout<<"4. Tampil Data Dokter" << endl;
+        cout<<"5. Tampil Data Pasien"<< endl;
+        cout<<"6. Hapus Data Dokter"<< endl;
+        cout<<"7. Hapus Data Pasien"<< endl;
         cout<<"0. Keluar"<< endl;
         cout<<"\nPilih Menu : ";
         cin>>choose;
@@ -30,23 +38,31 @@ void MainMenu(){
         switch(choose){
         case 1:
             InputDataDokter(A,parent);
+            clrscr();
             break;
         case 2:
             InputDataPasien(B,child);
+            clrscr();
             break;
         case 3:
-            cout<<"1. Tampilkan Data Dokter" << endl;
-            cout<<"2. Tampilkan Data Pasien"<< endl;
-            cout<<"\nPilih : ";
-            cin>>view;
-            system("CLS");
-            if(view == 1){
-                printParent(A);
-                bersih();
-            } else if(view == 2){
-                printChild(B);
-                bersih();
-            }
+            PasienBerobat(A,B,C,ADRchild,ADRparent,ADRrelasi);
+            clrscr();
+            break;
+        case 4:
+            printParent(A);
+            clrscr();
+            break;
+        case 5:
+            printChild(B);
+            clrscr();
+            break;
+        case 6:
+            DeleteParent(A,C);
+            clrscr();
+            break;
+        case 7:
+            DeleteChild(B,C);
+            clrscr();
             break;
         }
         if(choose == 0){
