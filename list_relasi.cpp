@@ -78,12 +78,14 @@ adr_relasi findElmRelasi(List_relasi L, int IDChild, int IDParent){
 }
 
 void printRelasi(List_relasi L){
+    int i = 1;
     adr_relasi P = first(L);
     if (P != NULL) {
         while (P != NULL){
-        cout << info(child(P)).Nama <<" berobat kepada dokter "<< info(parent(P)).Keahlian << " (";
-        cout << info(parent(P)).Nama << ")";
+        cout <<i<<". pasien "<< info(child(P)).Nama <<" berobat kepada dokter "<< info(parent(P)).Keahlian << " (";
+        cout << info(parent(P)).Nama << ")"<<endl;
         P = next(P);
+        i++;
         }
     } else {
         cout << "Tidak ada data berobat" <<endl;
@@ -104,13 +106,51 @@ void PasienBerobat(List_parent &ListP, List_child &ListC, List_relasi &ListR, ad
             AdrR = alokasiRelasi(AdrP,AdrC);
             insertLastRelasi(ListR,AdrR);
             cout << "\nData berobat telah diinput." << endl;
+        } else if (AdrC){
+            cout << "\nDokter tidak ditemukan."<<endl;
         } else {
             cout << "\nPasien tidak ditemukan."<<endl;
         }
     } else {
         cout << "\nPasien sudah terdata dengan dokter tersebut" <<endl;
     }
-    clrscr();
+}
+
+void deleteListRelasi(List_relasi &ListR,int IDdokter,int IDpasien){
+    adr_relasi P;
+
+    if (first(ListR) != NULL){
+        if (info(child(first(ListR))).IDPasien == IDpasien && info(parent(first(ListR))).IDDokter == IDdokter){
+            deleteFirstRelasi(ListR,P);
+            dealokasiRelasi(P);
+        } else if(info(child(last(ListR))).IDPasien == IDpasien && info(parent(last(ListR))).IDDokter == IDdokter) {
+            deleteLastRelasi(ListR,P);
+            dealokasiRelasi(P);
+        } else {
+            adr_relasi Q = first(ListR);
+            while (Q != NULL && info(child(Q)).IDPasien < IDpasien && info(parent(Q)).IDDokter < IDdokter) {
+                P = Q;
+                Q = next(Q);
+            }
+            deleteAfterRelasi(P,Q);
+            dealokasiRelasi(Q);
+        }
+    }
+}
+
+void DeleteRelasi(List_relasi &ListR){
+    int IDpasien,IDdokter;
+
+    cout << "ID Pasien : ";
+    cin >> IDpasien;
+    cout << "ID Dokter  : ";
+    cin >> IDdokter;
+    if (findElmRelasi(ListR,IDpasien,IDdokter) != NULL){
+        deleteListRelasi(ListR,IDdokter,IDpasien);
+        cout << "Data berobat telah dihapus" <<endl;
+    } else {
+        cout << "Data tidak ditemukan" <<endl;
+    }
 }
 
 adr_relasi cariParentRelasi(List_relasi ListR, int ID){
@@ -212,6 +252,56 @@ void DeleteChild(List_child &ListC, List_relasi &ListR){
     } else {
         cout << "ID tidak terdaftar" <<endl;
     }
+}
+
+void printChildFromOneParent(List_relasi ListR, List_parent ListP){
+    int ID;
+    cout << "ID Dokter : ";
+    cin >> ID;
+    adr_relasi P = first(ListR);
+    adr_relasi Q = cariParentRelasi(ListR,ID);
+    adr_parent R = findElmParent(ListP,ID);
+
+    if (R != NULL){
+        if (Q != NULL){
+            cout << "\nPasien dari dokter (" << info(parent(Q)).Nama << ") : \n";
+            while (P != NULL){
+                if (info(parent(P)).IDDokter == ID){
+                    cout <<"=>"<< info(child(P)).Nama <<endl;
+                }
+                P = next(P);
+            }
+        } else {
+           cout << "Dokter ini belum memiliki pasien" <<endl;
+        }
+    } else {
+        cout << "Dokter ini belum terdaftar" <<endl;
+    }
+}
+
+void printChildFromAllParent(List_relasi ListR,List_parent ListP){
+    adr_parent P;
+    adr_relasi R;
+
+    cout << "DATA SELURUH PASIEN DARI SEMUA DOKTER"<<endl;
+    P = first(ListP);
+    int i = 1;
+    while (P != NULL){
+        cout << i <<". Pasien dari dokter ("<< info(P).Nama <<") : "<<endl;
+        R = first(ListR);
+        int j = 1;
+        while (R != NULL){
+            if (info(P).IDDokter == info(parent(R)).IDDokter) {
+                cout <<"\t"<<j<<". "<<info(child(R)).Nama <<endl;
+                j++;
+            }
+            R = next(R);
+        }
+        cout<<endl;
+        i++;
+        P = next(P);
+    }
+
 }
 
 void clrscr(){

@@ -24,14 +24,20 @@ void MainMenu(){
     int choose;
     do{
         cout<<"KLINIK MITRA SEHAT"<< endl;
-        cout<<"1. Input Data Dokter"<< endl;
-        cout<<"2. Input Data Pasien"<< endl;
-        cout<<"3. Input Data Berobat"<< endl;
-        cout<<"4. Tampil Data Dokter" << endl;
-        cout<<"5. Tampil Data Pasien"<< endl;
-        cout<<"6. Hapus Data Dokter"<< endl;
-        cout<<"7. Hapus Data Pasien"<< endl;
-        cout<<"0. Keluar"<< endl;
+        cout<<"1.  Input Data Dokter"<< endl;
+        cout<<"2.  Input Data Pasien"<< endl;
+        cout<<"3.  Input Data Berobat"<< endl;
+        cout<<"4.  Tampil Data Dokter" << endl;
+        cout<<"5.  Tampil Data Pasien"<< endl;
+        cout<<"6.  Tampil Data Berobat"<< endl;
+        cout<<"7.  Tampil Pasien Satu Dokter"<< endl;
+        cout<<"8.  Tampil Pasien Setiap Dokter"<< endl;
+        cout<<"9.  Hapus Data Dokter"<< endl;
+        cout<<"10. Hapus Data Pasien"<< endl;
+        cout<<"11. Hapus Data Berobat"<< endl;
+        cout<<"12. "<< endl;
+        cout<<"13. "<< endl;
+        cout<<"0.  Keluar"<< endl;
         cout<<"\nPilih Menu : ";
         cin>>choose;
         system("CLS");
@@ -57,11 +63,35 @@ void MainMenu(){
             clrscr();
             break;
         case 6:
-            DeleteParent(A,C);
+            printRelasi(C);
             clrscr();
             break;
         case 7:
+            printChildFromOneParent(C,A);
+            clrscr();
+            break;
+         case 8:
+            printChildFromAllParent(C,A);
+            clrscr();
+            break;
+        case 9:
+            DeleteParent(A,C);
+            clrscr();
+            break;
+        case 10:
             DeleteChild(B,C);
+            clrscr();
+            break;
+        case 11:
+            DeleteRelasi(C);
+            clrscr();
+            break;
+        case 12:
+
+            clrscr();
+            break;
+        case 13:
+
             clrscr();
             break;
         }

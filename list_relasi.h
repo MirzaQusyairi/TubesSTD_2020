@@ -36,12 +36,16 @@ void dealokasiRelasi(adr_relasi &P);
 adr_relasi findElmRelasi(List_relasi L, int IDChild, int IDParent);
 void printRelasi(List_relasi L);
 void PasienBerobat(List_parent &LP,List_child &LC,List_relasi &LR,adr_child &AC,adr_parent &AP,adr_relasi &AR);
+void deleteListRelasi(List_relasi &ListR,int IDdokter,int IDpasien);
+void DeleteRelasi(List_relasi &ListR);
 adr_relasi cariParentRelasi(List_relasi ListR, int ID);
 adr_relasi cariChildRelasi(List_relasi ListR,int ID);
 void deleteParentRelasi(List_relasi &ListR,int ID);
 void deleteChildRelasi(List_relasi &ListR, int ID);
 void DeleteParent(List_parent &ListP, List_relasi &ListR);
 void DeleteChild(List_child &ListC, List_relasi &ListR);
+void printChildFromOneParent(List_relasi ListR, List_parent ListP);
+void printChildFromAllParent(List_relasi ListR, List_parent ListP);
 void clrscr();
 
 #endif // LIST_RELASI_H_INCLUDED
