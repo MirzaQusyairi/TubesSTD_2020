@@ -20,23 +20,26 @@ void MainMenu(){
     createListParent(A);
     createListChild(B);
     createListRelasi(C);
+    Date HariIni;
 
     int choose;
+
+    TglHariIni(HariIni);
     do{
         cout<<"KLINIK MITRA SEHAT"<< endl;
         cout<<"1.  Input Data Dokter"<< endl;
         cout<<"2.  Input Data Pasien"<< endl;
         cout<<"3.  Input Data Berobat"<< endl;
-        cout<<"4.  Tampil Data Dokter" << endl;
-        cout<<"5.  Tampil Data Pasien"<< endl;
-        cout<<"6.  Tampil Data Berobat"<< endl;
-        cout<<"7.  Tampil Pasien Satu Dokter"<< endl;
-        cout<<"8.  Tampil Pasien Setiap Dokter"<< endl;
+        cout<<"4.  Menampilkan Data Dokter" << endl;
+        cout<<"5.  Menampilkan Data Pasien"<< endl;
+        cout<<"6.  Menampilkan Data Berobat"<< endl;
+        cout<<"7.  Menampilkan Pasien Satu Dokter"<< endl;
+        cout<<"8.  Menampilkan Pasien Setiap Dokter"<< endl;
         cout<<"9.  Hapus Data Dokter"<< endl;
         cout<<"10. Hapus Data Pasien"<< endl;
         cout<<"11. Hapus Data Berobat"<< endl;
-        cout<<"12. "<< endl;
-        cout<<"13. "<< endl;
+        cout<<"12. Menampilkan Dokter Senior"<< endl;
+        cout<<"13. Menampilkan Pasien Dibawah Umur"<< endl;
         cout<<"0.  Keluar"<< endl;
         cout<<"\nPilih Menu : ";
         cin>>choose;
@@ -87,11 +90,11 @@ void MainMenu(){
             clrscr();
             break;
         case 12:
-
+            DokterSenior(A);
             clrscr();
             break;
         case 13:
-
+            PasienDibawahUmur(B,HariIni);
             clrscr();
             break;
         }

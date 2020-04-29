@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <stdlib.h>
+#include <ctime>
 #include "list_parent.h"
 #include "list_child.h"
 #define next(P) P->next
@@ -46,6 +47,11 @@ void DeleteParent(List_parent &ListP, List_relasi &ListR);
 void DeleteChild(List_child &ListC, List_relasi &ListR);
 void printChildFromOneParent(List_relasi ListR, List_parent ListP);
 void printChildFromAllParent(List_relasi ListR, List_parent ListP);
+void DokterSenior(List_parent &L);
+
+void PasienDibawahUmur(List_child &L, Date &HariIni);
+void TglHariIni(Date &HariIni);
+
 void clrscr();
 
 #endif // LIST_RELASI_H_INCLUDED
