@@ -304,6 +304,51 @@ void printChildFromAllParent(List_relasi ListR,List_parent ListP){
 
 }
 
+void DokterSenior(List_parent &L){
+    adr_parent P = first(L);
+    while(P!=NULL ){
+        if(info(P).Pengalaman >= 5){
+            cout << "ID Dokter     : " << info(P).IDDokter << endl;
+            cout << "Nama          : " << info(P).Nama << endl;
+            cout << "Alamat        : " << info(P).Alamat << endl;
+            cout << "Jenis Kelamin : " << info(P).JenisKel << endl;
+            cout << "Keahlian      : " << info(P).Keahlian << endl;
+            cout << "Pengalaman    : " << info(P).Pengalaman << " Tahun" << endl;
+            cout<<endl;
+        }
+        P=next(P);
+    }
+}
+
+void TglHariIni(Date &HariIni){
+    time_t now = time(0);
+    tm *ltm = localtime(&now);
+
+    HariIni.tanggal = ltm->tm_mday;
+    HariIni.bulan = 1 + ltm->tm_mon;
+    HariIni.tahun = 1900 + ltm->tm_year;
+}
+
+void PasienDibawahUmur(List_child &L, Date &HariIni){
+    adr_child P = first(L);
+    if(P!=NULL){
+        do{
+            int selisih = (HariIni.tahun - info(P).TglLahir.tahun) - 1;
+            if(HariIni.bulan >= info(P).TglLahir.bulan && HariIni.tanggal >= info(P).TglLahir.tanggal){
+                selisih = selisih + 1;
+            }
+            if(selisih < 18){
+                cout << "ID Pasien     : " << info(P).IDPasien << endl;
+                cout << "Nama          : " << info(P).Nama << endl;
+                cout << "Alamat        : " << info(P).Alamat << endl;
+                cout << "Jenis Kelamin : " << info(P).JenisKel << endl;
+                cout << "Umur          : " << selisih << endl;
+            }
+            P=next(P);
+        }while (P != first(L));
+    }
+}
+
 void clrscr(){
     string any;
     cout<<endl;

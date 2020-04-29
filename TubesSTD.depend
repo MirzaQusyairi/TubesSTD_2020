@@ -1,8 +1,13 @@
 # depslib dependency file v1.0
-1587279101 source:c:\users\kamil\documents\github\tubesstd_2020\main.cpp
+1588150552 source:c:\users\kamil\documents\github\tubesstd_2020\main.cpp
 	<iostream>
+	<stdlib.h>
+	"list_parent.h"
+	"list_child.h"
+	"list_relasi.h"
 
-1587279554 source:c:\users\kamil\documents\github\tubesstd_2020\list_relasi.cpp
+1588152692 source:c:\users\kamil\documents\github\tubesstd_2020\list_relasi.cpp
+	"list_relasi.h"
 
 1588065950 source:c:\users\computer\documents\github\tubesstd_2020\main.cpp
 	<iostream>
@@ -33,4 +38,25 @@
 
 1588062121 source:c:\users\computer\documents\github\tubesstd_2020\list_parent.cpp
 	"list_parent.h"
+
+1588142373 source:c:\users\kamil\documents\github\tubesstd_2020\list_child.cpp
+	"list_child.h"
+
+1588150330 c:\users\kamil\documents\github\tubesstd_2020\list_child.h
+	<iostream>
+	<stdlib.h>
+
+1588142373 source:c:\users\kamil\documents\github\tubesstd_2020\list_parent.cpp
+	"list_parent.h"
+
+1588142373 c:\users\kamil\documents\github\tubesstd_2020\list_parent.h
+	<iostream>
+	<stdlib.h>
+
+1588150924 c:\users\kamil\documents\github\tubesstd_2020\list_relasi.h
+	<iostream>
+	<stdlib.h>
+	<ctime>
+	"list_parent.h"
+	"list_child.h"
 

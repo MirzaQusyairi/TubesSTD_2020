@@ -15,12 +15,14 @@ using namespace std;
 struct Date{
     int tanggal,bulan,tahun;
 };
+
 struct datapasien{
     int IDPasien;
     string Nama;
     string Alamat;
     string JenisKel;
     Date TglLahir;
+    Date HariIni;
 };
 
 typedef datapasien infotype_child;
