@@ -1,3 +1,6 @@
+#include "list_parent.h"
+#include "list_child.h"
+#include "list_relasi.h"
 #include <iostream>
 #include <stdlib.h>
 
