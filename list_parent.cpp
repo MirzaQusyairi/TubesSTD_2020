@@ -108,6 +108,7 @@ void dealokasiParent (adr_parent &P){
 void printParent(List_parent L) {
     adr_parent P = first(L);
     if (first(L) != NULL ) {
+        cout << "========DATA DOKTER========"<<endl<<endl;
         while (P != NULL) {
             cout << "ID Dokter     : " << info(P).IDDokter << endl;
             cout << "Nama          : " << info(P).Nama << endl;
@@ -137,7 +138,7 @@ int randomIDDokter(){
 }
 
 void InputDataDokter(List_parent &L, infotype_parent &data){
-    cout << "========DATA DOKTER========\n";
+    cout << "========FORM DATA DOKTER========"<<endl<<endl;
     cout << "Input Nama          : ";
     cin.get();
     getline(cin, data.Nama);

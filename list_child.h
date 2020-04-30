@@ -22,9 +22,9 @@ struct datapasien{
     string Alamat;
     string JenisKel;
     Date TglLahir;
-    Date HariIni;
 };
 
+typedef Date HariIni;
 typedef datapasien infotype_child;
 typedef struct elmlist_child *adr_child;
 

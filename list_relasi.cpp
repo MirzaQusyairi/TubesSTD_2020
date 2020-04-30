@@ -81,6 +81,7 @@ void printRelasi(List_relasi L){
     int i = 1;
     adr_relasi P = first(L);
     if (P != NULL) {
+        cout << "========DATA BEROBAT========"<<endl<<endl;
         while (P != NULL){
         cout <<i<<". pasien "<< info(child(P)).Nama <<" berobat kepada dokter "<< info(parent(P)).Keahlian << " (";
         cout << info(parent(P)).Nama << ")"<<endl;
@@ -96,9 +97,10 @@ void printRelasi(List_relasi L){
 void PasienBerobat(List_parent &ListP, List_child &ListC, List_relasi &ListR, adr_child &AdrC, adr_parent &AdrP, adr_relasi &AdrR){
     int IDpasien,IDdokter;
 
-    cout << "ID Pasien : ";
+    cout << "========FORM DATA BEROBAT========"<<endl<<endl;
+    cout << "Input ID Pasien : ";
     cin >> IDpasien;
-    cout << "ID Dokter  : ";
+    cout << "Input ID Dokter  : ";
     cin >> IDdokter;
     AdrC = findElmChild(ListC,IDpasien);AdrP = findElmParent(ListP,IDdokter);
     if (findElmRelasi(ListR,IDpasien,IDdokter) == NULL){
@@ -140,10 +142,10 @@ void deleteListRelasi(List_relasi &ListR,int IDdokter,int IDpasien){
 
 void DeleteRelasi(List_relasi &ListR){
     int IDpasien,IDdokter;
-
-    cout << "ID Pasien : ";
+    cout << "========HAPUS DATA BEROBAT========"<<endl<<endl;
+    cout << "Input ID Pasien : ";
     cin >> IDpasien;
-    cout << "ID Dokter  : ";
+    cout << "Input ID Dokter  : ";
     cin >> IDdokter;
     if (findElmRelasi(ListR,IDpasien,IDdokter) != NULL){
         deleteListRelasi(ListR,IDdokter,IDpasien);
@@ -226,7 +228,8 @@ void deleteChildRelasi(List_relasi &ListR, int ID){
 
 void DeleteParent(List_parent &ListP, List_relasi &ListR){
     int ID;
-    cout << "ID Dokter yang akan di hapus : ";
+    cout << "========HAPUS DATA DOKTER========"<<endl<<endl;
+    cout << "Input ID Dokter : ";
     cin >> ID;
     if (findElmParent(ListP,ID) != NULL) {
         if(cariParentRelasi(ListR,ID) != NULL) {
@@ -241,7 +244,8 @@ void DeleteParent(List_parent &ListP, List_relasi &ListR){
 
 void DeleteChild(List_child &ListC, List_relasi &ListR){
     int ID;
-    cout << "ID Pasien yang akan di hapus : ";
+    cout << "========HAPUS DATA PASIEN========"<<endl<<endl;
+    cout << "Input ID Pasien : ";
     cin >> ID;
     if (findElmChild(ListC,ID) != NULL){
         if (cariChildRelasi(ListR,ID) != NULL){
@@ -256,7 +260,8 @@ void DeleteChild(List_child &ListC, List_relasi &ListR){
 
 void printChildFromOneParent(List_relasi ListR, List_parent ListP){
     int ID;
-    cout << "ID Dokter : ";
+    cout << "========CARI PASIEN DARI DOKTER========"<<endl<<endl;
+    cout << "Input ID Dokter : ";
     cin >> ID;
     adr_relasi P = first(ListR);
     adr_relasi Q = cariParentRelasi(ListR,ID);
@@ -283,41 +288,50 @@ void printChildFromAllParent(List_relasi ListR,List_parent ListP){
     adr_parent P;
     adr_relasi R;
 
-    cout << "DATA SELURUH PASIEN DARI SEMUA DOKTER"<<endl;
     P = first(ListP);
     int i = 1;
-    while (P != NULL){
-        cout << i <<". Pasien dari dokter ("<< info(P).Nama <<") : "<<endl;
-        R = first(ListR);
-        int j = 1;
-        while (R != NULL){
-            if (info(P).IDDokter == info(parent(R)).IDDokter) {
-                cout <<"\t"<<j<<". "<<info(child(R)).Nama <<endl;
-                j++;
+    if(P != NULL){
+        while (P != NULL){
+            cout << i <<". Pasien dari dokter ("<< info(P).Nama <<") : "<<endl;
+            R = first(ListR);
+            int j = 1;
+            while (R != NULL){
+                if (info(P).IDDokter == info(parent(R)).IDDokter) {
+                    cout <<"\t"<<j<<". "<<info(child(R)).Nama <<endl;
+                    j++;
+                }
+                R = next(R);
             }
-            R = next(R);
+            cout<<endl;
+            i++;
+            P = next(P);
         }
-        cout<<endl;
-        i++;
-        P = next(P);
+    } else {
+         cout << "Tidak ada data ditemukan"<<endl;
     }
+
 
 }
 
 void DokterSenior(List_parent &L){
     adr_parent P = first(L);
-    while(P!=NULL ){
-        if(info(P).Pengalaman >= 5){
-            cout << "ID Dokter     : " << info(P).IDDokter << endl;
-            cout << "Nama          : " << info(P).Nama << endl;
-            cout << "Alamat        : " << info(P).Alamat << endl;
-            cout << "Jenis Kelamin : " << info(P).JenisKel << endl;
-            cout << "Keahlian      : " << info(P).Keahlian << endl;
-            cout << "Pengalaman    : " << info(P).Pengalaman << " Tahun" << endl;
-            cout<<endl;
+    if(P != NULL){
+        while(P != NULL){
+            if(info(P).Pengalaman >= 10){
+                cout << "ID Dokter     : " << info(P).IDDokter << endl;
+                cout << "Nama          : " << info(P).Nama << endl;
+                cout << "Alamat        : " << info(P).Alamat << endl;
+                cout << "Jenis Kelamin : " << info(P).JenisKel << endl;
+                cout << "Keahlian      : " << info(P).Keahlian << endl;
+                cout << "Pengalaman    : " << info(P).Pengalaman << " Tahun" << endl;
+                cout<<endl;
+            }
+            P=next(P);
         }
-        P=next(P);
+    } else {
+        cout << "Tidak ada data ditemukan"<<endl;
     }
+
 }
 
 void TglHariIni(Date &HariIni){
@@ -331,21 +345,24 @@ void TglHariIni(Date &HariIni){
 
 void PasienDibawahUmur(List_child &L, Date &HariIni){
     adr_child P = first(L);
-    if(P!=NULL){
+    if(P != NULL){
         do{
             int selisih = (HariIni.tahun - info(P).TglLahir.tahun) - 1;
             if(HariIni.bulan >= info(P).TglLahir.bulan && HariIni.tanggal >= info(P).TglLahir.tanggal){
                 selisih = selisih + 1;
             }
-            if(selisih < 18){
+            if(selisih <18){
                 cout << "ID Pasien     : " << info(P).IDPasien << endl;
                 cout << "Nama          : " << info(P).Nama << endl;
                 cout << "Alamat        : " << info(P).Alamat << endl;
                 cout << "Jenis Kelamin : " << info(P).JenisKel << endl;
                 cout << "Umur          : " << selisih << endl;
+                cout<<endl;
             }
             P=next(P);
         }while (P != first(L));
+    } else {
+        cout << "Tidak ada data ditemukan"<<endl;
     }
 }
 

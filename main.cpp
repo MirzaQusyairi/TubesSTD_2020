@@ -1,14 +1,6 @@
 #include "list_parent.h"
 #include "list_child.h"
 #include "list_relasi.h"
-#include <iostream>
-#include <stdlib.h>
-
-#include "list_parent.h"
-#include "list_child.h"
-#include "list_relasi.h"
-
-using namespace std;
 
 void MainMenu(){
     infotype_parent parent;
@@ -24,12 +16,11 @@ void MainMenu(){
     createListChild(B);
     createListRelasi(C);
     Date HariIni;
+    TglHariIni(HariIni);
 
     int choose;
-
-    TglHariIni(HariIni);
     do{
-        cout<<"KLINIK MITRA SEHAT"<< endl;
+        cout<<"==========KLINIK MITRA SEHAT=========="<<endl<<endl;
         cout<<"1.  Input Data Dokter"<< endl;
         cout<<"2.  Input Data Pasien"<< endl;
         cout<<"3.  Input Data Berobat"<< endl;

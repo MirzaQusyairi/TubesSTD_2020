@@ -144,6 +144,7 @@ adr_child findElmChild(List_child L, int x) {
 void printChild(List_child L) {
     adr_child P = first(L);
     if (first(L) != NULL ) {
+        cout << "========DATA PASIEN========"<<endl<<endl;
         do {
             cout << "ID Pasien     : " << info(P).IDPasien << endl;
             cout << "Nama          : " << info(P).Nama << endl;
@@ -166,7 +167,7 @@ int randomIDPasien(){
 }
 
 void InputDataPasien(List_child &L, infotype_child &data) {
-    cout << "========DATA PASIEN========\n";
+    cout << "========FORM DATA PASIEN========"<<endl<<endl;
     cout << "Input Nama          : ";
     cin.get();
     getline(cin, data.Nama);
