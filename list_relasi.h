@@ -48,7 +48,6 @@ void DeleteChild(List_child &ListC, List_relasi &ListR);
 void printChildFromOneParent(List_relasi ListR, List_parent ListP);
 void printChildFromAllParent(List_relasi ListR, List_parent ListP);
 void DokterSenior(List_parent &L);
-
 void PasienDibawahUmur(List_child &L, Date &HariIni);
 void TglHariIni(Date &HariIni);
 
