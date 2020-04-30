@@ -30,6 +30,7 @@ struct elmlist_parent{
 
 struct List_parent{
     adr_parent first;
+    adr_parent last;
 };
 
 void createListParent(List_parent &L);
